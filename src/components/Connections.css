@@ -1,0 +1,32 @@
+.conn__head {
+  border-top: 1px solid var(--line);
+  padding-top: 34px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.conn__title { font-size: 15px; color: var(--ink-soft); }
+.conn__count { color: var(--ink); font-weight: 600; }
+.conn__link { font-size: 13px; flex-shrink: 0; }
+
+.conn__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.conn__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  font-size: 13px;
+  color: #3F3C36;
+  font-weight: 450;
+}

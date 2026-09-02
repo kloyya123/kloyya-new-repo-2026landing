@@ -1,0 +1,82 @@
+/* ─────────────────────────────────────────────────────────────
+   Kloyya design tokens
+   Every colour, type size and radius in the page resolves here.
+   Change a value once and it propagates. Do not hardcode hexes
+   in components — add a token instead.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --paper:        #FBFAF8;  /* page background */
+  --paper-sunk:   #F9F7F4;  /* footer, inset panels */
+  --paper-raised: #FCFBF9;  /* card chrome, toolbars */
+  --white:        #ffffff;
+  --dark:         #14161A;  /* dark sections, primary buttons */
+  --dark-raised:  #191C21;  /* cards inside dark sections */
+
+  /* ── Ink ────────────────────────────────────────────────── */
+  --ink:        #14161A;
+  --ink-2:      #25282D;
+  --ink-3:      #4B4841;
+  --ink-muted:  #57534C;
+  --ink-soft:   #6B675F;
+  --ink-faint:  #8C877E;
+  --ink-ghost:  #A8A296;
+  --ink-on-dark:       #ffffff;
+  --ink-on-dark-soft:  #9299A2;
+  --ink-on-dark-faint: #6B7079;
+
+  /* ── Lines ─────────────────────────────────────────────── */
+  --line:        #E7E3DB;
+  --line-soft:   #EDE9E1;
+  --line-softer: #EFEBE3;
+  --line-faint:  #F0ECE4;
+  --line-field:  #E3DED4;
+  --line-dark:   #262A30;
+
+  /* ── Brand ─────────────────────────────────────────────── */
+  --blue:       #2159C5;  /* from the Kloyya mark */
+  --blue-deep:  #17408E;
+  --blue-tint:  #EDF2FD;
+  --blue-wash:  #FAFCFF;
+  --blue-line:  #DFE7F7;
+  --blue-on-dark: #7C93C9;
+
+  /* ── Semantic ──────────────────────────────────────────── */
+  --green:       #2C7A55;
+  --green-tint:  #EDF6F1;
+  --amber:       #8C5A13;
+  --amber-tint:  #FDF4E7;
+  --amber-line:  #F0DEBF;
+  --red:         #A8412C;
+
+  /* ── Type ──────────────────────────────────────────────── */
+  --font-sans:  Geist, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:  'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: Newsreader, Georgia, serif;   /* Kloyya's own voice — italic only */
+
+  /* ── Radii ─────────────────────────────────────────────── */
+  --r-sm:  6px;
+  --r-md:  9px;
+  --r-lg:  14px;
+  --r-xl:  18px;
+  --r-2xl: 22px;
+  --r-pill: 999px;
+
+  /* ── Elevation ─────────────────────────────────────────── */
+  --shadow-card:  0 1px 2px rgba(20, 22, 26, .04), 0 24px 60px -30px rgba(20, 22, 26, .22);
+  --shadow-panel: 0 1px 2px rgba(20, 22, 26, .04), 0 20px 50px -30px rgba(20, 22, 26, .2);
+  --shadow-menu:  0 1px 2px rgba(20, 22, 26, .05), 0 20px 44px -22px rgba(20, 22, 26, .3);
+  --shadow-ask:   0 1px 2px rgba(20, 22, 26, .05), 0 22px 50px -26px rgba(20, 40, 90, .35);
+  --shadow-blue:  0 1px 2px rgba(33, 89, 197, .3), 0 8px 24px -8px rgba(33, 89, 197, .45);
+
+  /* ── Layout ────────────────────────────────────────────── */
+  --page:      1180px;   /* standard section width */
+  --page-wide: 1340px;   /* pricing, which needs 5 columns */
+  --gutter:    48px;
+  --nav-h:     62px;
+  --section-y: 96px;
+
+  /* ── Motion ────────────────────────────────────────────── */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}

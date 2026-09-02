@@ -1,0 +1,187 @@
+.hiw__heading { margin: 16px auto 0; font-size: 46px; max-width: 17ch; }
+
+.hiw__row { display: grid; gap: 12px; }
+.hiw__row--two   { grid-template-columns: 1fr 1.35fr; margin-top: 44px; }
+.hiw__row--three { grid-template-columns: repeat(3, 1fr); margin-top: 12px; }
+
+.hiw__card { display: flex; flex-direction: column; }
+.card__body--tight { padding: 20px 22px 24px; }
+.card__title--sm { font-size: 17px; letter-spacing: -.024em; margin-top: 6px; }
+.card__text--sm { font-size: 13px; margin-top: 8px; }
+.hiw__card .card__body { border-top: 1px solid var(--line-softer); }
+
+/* ── Card 1: composer ────────────────────────────────────── */
+.hiw__viz { flex-shrink: 0; }
+.hiw__viz--composer {
+  height: 186px;
+  background: linear-gradient(155deg, #EEF3FD 0%, #F7F5F1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.hiw__mockAsk {
+  width: 100%;
+  max-width: 300px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  box-shadow: 0 8px 24px -16px rgba(20, 22, 26, .4);
+  padding: 13px 14px;
+}
+.hiw__mockQuery { font-size: 12.5px; line-height: 1.4; }
+.hiw__mockCaret {
+  display: inline-block;
+  width: 2px; height: 12px;
+  background: var(--blue);
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: kl-pulse 1.1s ease-in-out infinite;
+}
+.hiw__mockToolbar { display: flex; align-items: center; gap: 6px; margin-top: 12px; }
+.hiw__mockRound {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--line-field);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.hiw__mockPill {
+  height: 22px;
+  padding: 0 9px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-field);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+.hiw__mockRec { color: var(--red); font-size: 9px; }
+.hiw__mockSend {
+  margin-left: auto;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+/* ── Card 2: stack → answer ──────────────────────────────── */
+.hiw__viz--connected {
+  height: 186px;
+  background: linear-gradient(155deg, #F7F5F1 0%, #EEF3FD 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+.hiw__mini {
+  width: 190px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 8px 24px -18px rgba(20, 22, 26, .4);
+}
+.hiw__miniLabel { font-size: 8.5px; letter-spacing: .09em; color: var(--ink-ghost); }
+.hiw__miniLabel--blue { color: var(--blue); }
+.hiw__miniGrid { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.hiw__arrow { font-size: 16px; color: #B4AEA3; flex-shrink: 0; }
+.hiw__miniValue { font-size: 17px; font-weight: 600; letter-spacing: -.03em; margin-top: 8px; }
+.hiw__miniBar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line-soft);
+  margin-top: 9px;
+  overflow: hidden;
+}
+.hiw__miniBarFill { display: block; height: 5px; background: var(--blue); border-radius: 3px; }
+.hiw__miniNote { font-size: 10px; color: var(--ink-faint); margin-top: 7px; }
+
+/* ── Card 3: plan steps ──────────────────────────────────── */
+.hiw__viz--plan {
+  height: 168px;
+  background: var(--paper-sunk);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+.hiw__planStep {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--white);
+  border: 1px solid var(--line-softer);
+  border-radius: 7px;
+  padding: 8px 10px;
+}
+.hiw__planNum { font-size: 9px; color: var(--ink-ghost); }
+.hiw__planBar { height: 5px; border-radius: 3px; }
+
+/* ── Card 4: activity log ────────────────────────────────── */
+.hiw__viz--log {
+  height: 168px;
+  background: var(--dark);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.hiw__logLine { display: flex; gap: 9px; font-size: 9.5px; line-height: 1.5; white-space: nowrap; }
+.hiw__logTime { color: #4E535B; }
+.hiw__logMsg { color: #A7ACB4; }
+
+/* ── Card 5: lock ────────────────────────────────────────── */
+.hiw__viz--lock {
+  height: 168px;
+  background: linear-gradient(155deg, #EEF3FD 0%, #F7F5F1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hiw__lockTile {
+  width: 74px; height: 74px;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--line-field);
+  box-shadow: 0 10px 28px -18px rgba(20, 40, 90, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hiw__lockBody {
+  width: 26px; height: 30px;
+  border: 2.5px solid var(--blue);
+  border-radius: 6px;
+  position: relative;
+  display: inline-block;
+  margin-top: 8px;
+}
+.hiw__lockShackle {
+  position: absolute;
+  left: 50%;
+  top: -13px;
+  transform: translateX(-50%);
+  width: 16px; height: 14px;
+  border: 2.5px solid var(--blue);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 1080px) {
+  .hiw__heading { font-size: 34px; }
+  .hiw__row--two, .hiw__row--three { grid-template-columns: 1fr; }
+  .hiw__viz--connected { flex-direction: column; height: auto; }
+}
