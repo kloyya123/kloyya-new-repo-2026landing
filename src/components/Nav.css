@@ -112,3 +112,51 @@
 @media (max-width: 700px) {
   .nav__signin { display: none; }
 }
+
+
+@media (max-width: 700px) {
+  .nav {
+    height: 58px;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .nav__brand {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .nav__wordmark {
+    font-size: 17px;
+  }
+
+  .nav__actions {
+    gap: 8px;
+  }
+
+  .nav__actions .btn--sm {
+    padding: 9px 14px;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav__actions .btn--ghost {
+    display: none;
+  }
+
+  .nav__actions .btn--dark {
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav {
+    padding-inline: 10px;
+  }
+
+  .nav__actions .btn--dark {
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+}

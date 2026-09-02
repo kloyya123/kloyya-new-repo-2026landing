@@ -1,32 +1,206 @@
+/* =========================================================
+   CONNECTIONS / INTEGRATIONS MARQUEE
+   ========================================================= */
+
+.conn {
+  overflow: hidden;
+}
+
 .conn__head {
-  border-top: 1px solid var(--line);
-  padding-top: 34px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
 
-.conn__title { font-size: 15px; color: var(--ink-soft); }
-.conn__count { color: var(--ink); font-weight: 600; }
-.conn__link { font-size: 13px; flex-shrink: 0; }
+.conn__marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 28px;
 
-.conn__grid {
+  /*
+   * The fade makes the integrations naturally disappear
+   * at both edges instead of being abruptly clipped.
+   */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.conn__track {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 22px;
+  align-items: center;
+  width: max-content;
+  gap: 18px;
+
+  /*
+   * Right -> left
+   * Linear = constant speed
+   * Infinite = never stops
+   */
+  animation: conn-marquee 62s linear infinite;
+
+  will-change: transform;
 }
 
+/*
+ * No card appearance.
+ * No border.
+ * No shadow.
+ * No background.
+ */
 .conn__chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 8px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--white);
-  font-size: 13px;
-  color: #3F3C36;
-  font-weight: 450;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  gap: 6px;
+
+  padding: 8px 2px;
+
+  border: 0 !important;
+  border-radius: 0;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  color: inherit;
+
+  white-space: nowrap;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/*
+ * Keep the integration icons slightly larger
+ * like the reference design.
+ */
+.conn__chip svg,
+.conn__chip img {
+  flex: 0 0 auto;
+}
+
+/*
+ * Seamless right -> left movement.
+ *
+ * Because the track contains the exact same list twice,
+ * moving by 50% brings the second copy into the exact
+ * position of the first copy.
+ */
+@keyframes conn-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
+ * Slightly slower/smoother on large screens.
+ */
+@media (min-width: 1200px) {
+  .conn__track {
+    animation-duration: 36s;
+  }
+}
+
+/*
+ * Tablet
+ */
+@media (max-width: 900px) {
+  .conn__head {
+    gap: 16px;
+  }
+
+  .conn__track {
+    gap: 13px;
+    animation-duration: 30s;
+  }
+
+  .conn__chip {
+    font-size: 17px;
+    gap: 9px;
+  }
+}
+
+/*
+ * Mobile
+ */
+@media (max-width: 640px) {
+  .conn__head {
+    align-items: flex-start;
+  }
+
+  .conn__title {
+    font-size: 15px;
+  }
+
+  .conn__link {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .conn__marquee {
+    margin-top: 22px;
+
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
+  }
+
+  .conn__track {
+    gap: 12px;
+    animation-duration: 26s;
+  }
+
+  .conn__icon{
+    border: 0px;
+    background-color: transparent;
+  }
+
+  .conn__chip {
+    font-size: 16px;
+    gap: 8px;
+    padding: 7px 2px;
+  }
+
+}
+
+/*
+ * Respect users who have requested reduced motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .conn__track {
+    animation: none;
+    transform: none;
+  }
 }
