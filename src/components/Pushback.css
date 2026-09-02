@@ -60,3 +60,50 @@
   .pb__heading { font-size: 32px; }
   .pb__quote { font-size: 19px; }
 }
+
+
+@media (max-width: 600px) {
+  .pb {
+    gap: 24px;
+  }
+
+  .pb__heading {
+    font-size: 32px;
+    line-height: 1.06;
+  }
+
+  .pb__sub {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+
+  .pb__quoteWrap {
+    padding: 20px 18px;
+  }
+
+  .pb__quote {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .pb__mark {
+    font-size: 16px;
+  }
+
+  .pb__sources {
+    padding: 17px 18px 19px;
+    gap: 10px;
+  }
+
+  .pb__source {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    row-gap: 2px;
+    font-size: 12.5px;
+  }
+
+  .pb__sourceDetail {
+    flex-basis: calc(100% - 28px);
+    margin-left: 28px;
+  }
+}

@@ -74,3 +74,39 @@
 @media (max-width: 620px) {
   .ft__top { grid-template-columns: 1fr; }
 }
+
+
+@media (max-width: 480px) {
+  .ft {
+    margin-top: var(--section-y);
+  }
+
+  .ft__top {
+    padding: 42px var(--gutter) 32px;
+    gap: 28px;
+  }
+
+  .ft__tagline {
+    margin-top: 11px;
+    font-size: 12.5px;
+  }
+
+  .ft__links {
+    gap: 9px;
+    margin-top: 13px;
+  }
+
+  .ft__link {
+    font-size: 12.5px;
+  }
+
+  .ft__bottom {
+    padding: 0 var(--gutter) 30px;
+    align-items: flex-start;
+  }
+
+  .ft__meta {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

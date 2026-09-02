@@ -179,3 +179,52 @@ img, svg { display: block; }
   :root { --gutter: 20px; --section-y: 56px; }
   .h2 { font-size: 34px; }
 }
+
+
+/* ── Mobile polish / overflow guard ─────────────────────────
+   Responsive-only overrides. Desktop layout remains unchanged.
+   ─────────────────────────────────────────────────────────── */
+
+html,
+body,
+#root {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 820px) {
+  .section,
+  .section--wide {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn {
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --gutter: 16px;
+    --section-y: 52px;
+  }
+
+  .h2 {
+    font-size: 32px;
+    line-height: 1.06;
+  }
+
+  .lede {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --gutter: 12px;
+  }
+}

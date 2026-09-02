@@ -47,3 +47,39 @@
   .cta { padding: 60px 24px; }
   .cta__heading { font-size: 36px; }
 }
+
+
+@media (max-width: 600px) {
+  .cta {
+    border-radius: 17px;
+    padding: 58px 18px 54px;
+  }
+
+  .cta__heading {
+    font-size: 34px;
+    line-height: 1.06;
+    max-width: 14ch;
+  }
+
+  .cta__sub {
+    margin-top: 13px;
+    font-size: 15.5px;
+  }
+
+  .cta__actions {
+    width: 100%;
+    max-width: 300px;
+    gap: 8px;
+    margin-top: 26px;
+  }
+
+  .cta__actions .btn {
+    width: 100%;
+  }
+
+  .cta__footnote {
+    margin-top: 14px;
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+}
