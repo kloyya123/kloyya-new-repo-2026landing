@@ -2,7 +2,6 @@ import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import DemoPlayer from './components/DemoPlayer.jsx';
-import LogoStrip from './components/LogoStrip.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import Pushback from './components/Pushback.jsx';
 import Connections from './components/Connections.jsx';
@@ -20,7 +19,6 @@ export default function App() {
       <main>
         <Hero />
         <DemoPlayer />
-        <LogoStrip />
         <HowItWorks />
         <Pushback />
         <Connections />
