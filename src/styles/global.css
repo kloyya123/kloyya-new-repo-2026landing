@@ -31,6 +31,17 @@ button {
   cursor: pointer;
 }
 
+/* Keyboard focus — visible ring on every interactive element.
+   :focus-visible keeps it off mouse clicks. WCAG 2.4.7. */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+/* Dark sections need a light ring to stay visible. */
+.sec :focus-visible,
+.cta :focus-visible { outline-color: #fff; }
+
 textarea::placeholder { color: var(--ink-ghost); }
 
 ::selection { background: #D6E2FA; }

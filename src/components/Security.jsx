@@ -28,7 +28,7 @@ export default function Security() {
           {s.badges.map((b) => (
             <span key={b} className="sec__badge mono">{b}</span>
           ))}
-          <a className="sec__link" href={s.link.href}>{s.link.label}</a>
+          {s.link && <a className="sec__link" href={s.link.href}>{s.link.label}</a>}
         </div>
       </div>
     </section>

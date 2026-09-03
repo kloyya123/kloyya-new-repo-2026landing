@@ -6,7 +6,9 @@ export default function AnnouncementBar() {
     <div className="announce">
       <span className="announce__tag">{a.tag}</span>
       <span className="announce__text">{a.text}</span>
-      <a className="announce__link" href={a.href}>{a.linkLabel}</a>
+      {a.linkLabel && a.href && (
+        <a className="announce__link" href={a.href}>{a.linkLabel}</a>
+      )}
     </div>
   );
 }

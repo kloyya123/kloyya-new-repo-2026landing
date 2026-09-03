@@ -8,6 +8,11 @@ const CTA_CLASS = {
   dark: 'btn btn--dark'
 };
 
+/* Interim CTA target. Real wiring is /signup?plan=<id> — never let
+   the client send back a price it computed. Backend spec § 6. */
+const ctaHref = (tier) =>
+  `mailto:contactsupport@kloyya.com?subject=${encodeURIComponent(`Kloyya ${tier.name} plan`)}`;
+
 export default function Pricing() {
   /* Yearly figures are derived here, never authored — change a
      monthly price in site.js and every saving updates with it. */
@@ -37,7 +42,7 @@ export default function Pricing() {
             <p className="pr__yearly mono">{t.yearlyLabel}</p>
             <p className="pr__desc">{t.desc}</p>
 
-            <button type="button" className={`${CTA_CLASS[t.ctaStyle]} pr__cta`}>{t.cta}</button>
+            <a href={ctaHref(t)} className={`${CTA_CLASS[t.ctaStyle]} pr__cta`}>{t.cta}</a>
 
             <ul className="pr__feats">
               {t.features.map((f) => (
@@ -50,6 +55,13 @@ export default function Pricing() {
           </article>
         ))}
       </div>
+
+      {p.terms && (
+        <p className="pr__terms">
+          {p.terms.text}{' '}
+          <a href={p.terms.linkHref}>{p.terms.linkLabel}</a>
+        </p>
+      )}
     </section>
   );
 }

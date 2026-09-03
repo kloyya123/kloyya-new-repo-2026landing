@@ -1,6 +1,13 @@
 import { footer as f } from '../content/site.js';
 import './Footer.css';
 
+/* A footer link is a real <a> only when it has an href; otherwise
+   it renders as plain text so we never ship a dead "#" anchor. */
+function FooterLink({ label, href }) {
+  if (!href) return <span className="ft__link ft__link--soon">{label}</span>;
+  return <a href={href} className="ft__link">{label}</a>;
+}
+
 export default function Footer() {
   return (
     <footer className="ft">
@@ -20,7 +27,7 @@ export default function Footer() {
             <h2 className="ft__colTitle mono">{col.title}</h2>
             <div className="ft__links">
               {col.links.map((l) => (
-                <a key={l} href="#" className="ft__link">{l}</a>
+                <FooterLink key={l.label} label={l.label} href={l.href} />
               ))}
             </div>
           </nav>
@@ -29,18 +36,6 @@ export default function Footer() {
 
       <div className="ft__bottom">
         <span className="ft__copy">{f.copyright}</span>
-        <div className="ft__meta">
-          {/* TODO: wire to a real status source, or delete the row. */}
-          <span className="ft__status">
-            <span className="ft__statusDot" aria-hidden="true" />
-            {f.status}
-          </span>
-          {f.socials.map((s) => (
-            <a key={s.name} href={s.href} className="ft__social" aria-label={s.name}>
-              <span className="ft__socialGlyph" style={{ backgroundImage: `url(${s.icon})` }} />
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   );

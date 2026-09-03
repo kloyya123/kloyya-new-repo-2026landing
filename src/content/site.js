@@ -12,8 +12,9 @@ import { pickTools } from './tools.js';
 export const announcement = {
   tag: 'NEW',
   text: 'Kloyya now reads WhatsApp Business and Instagram alongside your work stack',
-  linkLabel: "See what's new →",
-  href: '#'
+  /* No changelog page yet — set linkLabel + href together when one exists. */
+  linkLabel: null,
+  href: null
 };
 
 export const nav = {
@@ -149,7 +150,9 @@ export const pushback = {
 export const connections = {
   headingPlain: 'Connects to ',
   headingStrong: '14 places your work already is',
-  link: { label: 'See all connections →', href: '#' }
+  /* Every connection is already shown in the marquee below; no
+     separate page to link to yet. */
+  link: null
 };
 
 export const security = {
@@ -161,9 +164,10 @@ export const security = {
     { tag: 'DELETION',    title: 'Revoke and it forgets',             body: 'Disconnect a source and Kloyya drops everything it derived from it within the hour. You can watch it happen in the audit log.' }
   ],
   /* ⚠ Every one of these is a compliance claim. Do not ship until
-     legal and security have signed off — see README. */
+     legal and security have signed off — see README § "Before launch"
+     and backend spec §10. */
   badges: ['SOC 2 Type II', 'GDPR', 'ISO 27001', 'UK data residency', 'Penetration tested quarterly'],
-  link: { label: 'Read the trust centre →', href: '#' }
+  link: { label: 'Read our Privacy Policy →', href: '/legal/privacy/' }
 };
 
 /**
@@ -176,6 +180,15 @@ export const pricing = {
   heading: 'Priced per workspace, not per question.',
   sub: 'Because the moment you meter the questions, people stop asking the interesting ones.',
   yearlyDiscount: 0.10,
+  /* Rendered under the tier grid. The billing terms a payment
+     provider (and a first-time buyer) expects to see next to a
+     price — cadence, currency, tax, cancellation — with the full
+     policy one click away. */
+  terms: {
+    text: 'Billed in advance, monthly or yearly. Prices in USD; local taxes may apply at checkout. Paid plans renew automatically until cancelled — cancel anytime and renewal stops.',
+    linkLabel: 'Read the Payments, Refund & Cancellation Policy →',
+    linkHref: '/legal/payments-refunds/'
+  },
   tiers: [
     {
       id: 'free', name: 'Free', monthly: 0,
@@ -238,21 +251,44 @@ export const finalCta = {
   footnote: '$69 a month after the trial. No card to start.'
 };
 
+/**
+ * Footer links carry an explicit `href`:
+ *   - a string  → rendered as a real <a> (in-page anchor, /legal path, or mailto)
+ *   - null      → rendered as plain text (destination not built yet)
+ * Never render a dead "#" — see Footer.jsx.
+ */
 export const footer = {
   tagline: 'Ask for the outcome, not the',
   taglineAccent: 'answer',
   columns: [
-    { title: 'Product',   links: ['Outcome composer', 'Plan review', 'Live runs', 'Connections', 'Pricing'] },
-    { title: 'Resources', links: ['Documentation', 'Outcome library', 'Prompting guide', 'Changelog', 'Support'] },
-    { title: 'Company',   links: ['About', 'Customers', 'Careers', 'Blog', 'Contact'] },
-    { title: 'Legal',     links: ['Privacy', 'Terms', 'Security', 'Trust centre', 'Status'] }
+    { title: 'Product', links: [
+      { label: 'Outcome composer', href: '#product' },
+      { label: 'Plan review',      href: '#product' },
+      { label: 'Live runs',        href: '#product' },
+      { label: 'Connections',      href: '#connections' },
+      { label: 'Pricing',          href: '#pricing' }
+    ] },
+    { title: 'Resources', links: [
+      { label: 'Documentation',   href: null },
+      { label: 'Outcome library', href: null },
+      { label: 'Prompting guide', href: null },
+      { label: 'Changelog',       href: null },
+      { label: 'Support',         href: 'mailto:contactsupport@kloyya.com' }
+    ] },
+    { title: 'Company', links: [
+      { label: 'About',     href: null },
+      { label: 'Customers', href: null },
+      { label: 'Careers',   href: null },
+      { label: 'Blog',      href: null },
+      { label: 'Contact',   href: 'mailto:contactsupport@kloyya.com' }
+    ] },
+    { title: 'Legal', links: [
+      { label: 'Terms of Service',         href: '/legal/terms/' },
+      { label: 'Privacy Policy',           href: '/legal/privacy/' },
+      { label: 'Cookie Policy',            href: '/legal/cookies/' },
+      { label: 'Acceptable Use & AI',      href: '/legal/acceptable-use/' },
+      { label: 'Payments, Refund & Cancellation', href: '/legal/payments-refunds/' }
+    ] }
   ],
-  copyright: '© 2026 Kloyya Inc. All rights reserved.',
-  /* ⚠ Wire to a real status source before launch, or remove. */
-  status: 'All systems operational',
-  socials: [
-    { name: 'TikTok',    icon: 'https://cdn.simpleicons.org/tiktok/A8A296',    href: '#' },
-    { name: 'Instagram', icon: 'https://cdn.simpleicons.org/instagram/A8A296', href: '#' },
-    { name: 'X',         icon: 'https://cdn.simpleicons.org/x/A8A296',         href: '#' }
-  ]
+  copyright: '© 2026 Kloyya Inc. All rights reserved.'
 };
