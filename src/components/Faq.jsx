@@ -48,7 +48,9 @@ export default function Faq() {
       </div>
 
       <p className="faq__foot">
-        Still unsure? <a href="#">Book a demo</a> and we&rsquo;ll run one of your own outcomes live.
+        Still unsure?{' '}
+        <a href="mailto:contactsupport@kloyya.com?subject=Kloyya%20demo%20request">Book a demo</a>{' '}
+        and we&rsquo;ll run one of your own outcomes live.
       </p>
     </section>
   );

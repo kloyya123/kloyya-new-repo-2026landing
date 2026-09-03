@@ -15,9 +15,11 @@ export default function Connections() {
           <strong className="conn__count">{c.headingStrong}</strong>
         </p>
 
-        <a className="conn__link" href={c.link.href}>
-          {c.link.label}
-        </a>
+        {c.link && (
+          <a className="conn__link" href={c.link.href}>
+            {c.link.label}
+          </a>
+        )}
       </div>
 
       <div

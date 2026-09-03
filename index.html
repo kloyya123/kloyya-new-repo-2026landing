@@ -6,27 +6,33 @@
 
     <title>Kloyya — Ask for the outcome, not the answer</title>
     <meta name="description" content="Kloyya reads across the tools your work already lives in and comes back with the decision — including the part you didn't think to ask for." />
+    <link rel="canonical" href="https://kloyya.com/" />
 
-    <!-- OpenGraph / Twitter: replace the image path before launch -->
+    <!--
+      OpenGraph / Twitter. og-image.svg is on-brand and renders on most
+      platforms; a rasterised 1200×630 PNG is still worth adding pre-launch
+      for the few crawlers that ignore SVG (Facebook). Update kloyya.com if
+      the production domain differs.
+    -->
     <meta property="og:title" content="Kloyya — Ask for the outcome, not the answer" />
     <meta property="og:description" content="The intelligence layer on top of the tools your work already lives in." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://kloyya.com/" />
+    <meta property="og:image" content="/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image.svg" />
 
     <link rel="icon" type="image/png" href="/kloyya-mark.png" />
 
     <!--
-      FONTS — self-host before launch.
-      This CDN link is a render-blocking third-party request on your
-      highest-traffic page. See README § "Before launch".
+      FONTS — self-hosted, first-party, same-origin. @font-face rules
+      live in src/styles/fonts.css. These two preloads cover the
+      above-the-fold hero (Geist body + Newsreader italic accent);
+      the rest load on demand. No third-party request on the
+      critical path.
     -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,300..500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/newsreader-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div id="root"></div>

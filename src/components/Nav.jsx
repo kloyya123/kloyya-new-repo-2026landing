@@ -70,10 +70,11 @@ export default function Nav() {
       </nav>
 
       <div className="nav__actions">
-        {/* TODO: wire to /login and /signup once auth exists — spec § 4 */}
+        {/* TODO: wire to /login and /signup once auth exists — spec § 4.
+            Until then the CTAs open a mail draft to support. */}
         <a className="nav__signin" href="/login">Sign in</a>
-        <button type="button" className="btn btn--ghost btn--sm">Book a demo</button>
-        <button type="button" className="btn btn--dark btn--sm">Get started free</button>
+        <a className="btn btn--ghost btn--sm" href="mailto:contactsupport@kloyya.com?subject=Kloyya%20demo%20request">Book a demo</a>
+        <a className="btn btn--dark btn--sm" href="mailto:contactsupport@kloyya.com?subject=Get%20started%20with%20Kloyya">Get started free</a>
       </div>
     </header>
   );

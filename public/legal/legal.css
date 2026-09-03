@@ -1,0 +1,209 @@
+/* ─────────────────────────────────────────────────────────────
+   Kloyya legal / policy pages — standalone stylesheet.
+
+   These pages live in /public and are served as plain static
+   HTML (no bundler, no React), so they cannot import from
+   src/styles/tokens.css. The handful of values below mirror
+   that file — the canonical source of truth. Keep them in sync
+   if the brand palette changes.
+   ───────────────────────────────────────────────────────────── */
+
+/* Self-hosted, same set the app uses (src/styles/fonts.css). Latin only. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/geist-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/geistmono-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url('/fonts/newsreader-italic-latin.woff2') format('woff2');
+}
+
+:root {
+  --paper:      #FBFAF8;
+  --paper-sunk: #F9F7F4;
+  --white:      #ffffff;
+  --ink:        #14161A;
+  --ink-2:      #25282D;
+  --ink-soft:   #57534C;
+  --ink-faint:  #8C877E;
+  --ink-ghost:  #A8A296;
+  --line:       #E7E3DB;
+  --line-soft:  #EDE9E1;
+  --blue:       #2159C5;
+  --blue-deep:  #17408E;
+
+  --font-sans:  Geist, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:  "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: Newsreader, Georgia, "Times New Roman", serif;
+
+  --r-md:  9px;
+  --r-lg:  14px;
+  --measure: 68ch;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--blue-deep); text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.lg-header {
+  border-bottom: 1px solid var(--line-soft);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+}
+.lg-header__inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lg-brand { display: inline-flex; align-items: center; gap: 9px; }
+.lg-brand img { width: 22px; height: 22px; display: block; }
+.lg-brand__word {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.lg-back { font-size: 13.5px; color: var(--ink-soft); }
+.lg-back:hover { color: var(--blue); }
+
+/* ── Body ───────────────────────────────────────────────────── */
+
+.legal {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+.legal__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  margin: 0 0 14px;
+}
+
+.legal h1 {
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.legal h1 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.legal__meta {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  margin: 0 0 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal__lead {
+  font-size: 17px;
+  color: var(--ink-2);
+  margin: 0 0 36px;
+}
+
+.legal h2 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 44px 0 12px;
+  scroll-margin-top: 24px;
+}
+
+.legal h3 {
+  font-size: 15.5px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+  color: var(--ink-2);
+}
+
+.legal p { margin: 0 0 14px; max-width: 100%; }
+.legal ul, .legal ol { margin: 0 0 14px; padding-left: 22px; }
+.legal li { margin: 0 0 7px; }
+.legal li::marker { color: var(--ink-ghost); }
+
+.legal strong { font-weight: 600; }
+
+.legal a { text-decoration: underline; text-underline-offset: 2px; }
+
+.legal address {
+  font-style: normal;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  margin: 20px 0;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+
+.lg-footer {
+  border-top: 1px solid var(--line-soft);
+  background: var(--paper-sunk);
+}
+.lg-footer__inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.lg-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 18px;
+}
+.lg-footer__nav a { color: var(--ink-soft); }
+.lg-footer__nav a:hover { color: var(--blue); }
+.lg-footer__nav a[aria-current="page"] { color: var(--ink); font-weight: 500; text-decoration: none; }
+
+@media (max-width: 640px) {
+  .legal { padding: 40px 20px 64px; }
+  .lg-header__inner { padding: 16px 20px; }
+  .legal__meta { margin-bottom: 32px; }
+}
